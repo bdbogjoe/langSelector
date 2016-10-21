@@ -54,9 +54,7 @@ dependencies {
     compile 'org.grails:grails-datastore-rest-client'
 }
 grailsPublish {
-    // TODO: Provide values here
-    user = 'user'
-    key = 'key'
+    userOrg = 'webbfontaine'
     githubSlug = 'webbfontaine/langSelector'
     license {
         name = 'Apache-2.0'
