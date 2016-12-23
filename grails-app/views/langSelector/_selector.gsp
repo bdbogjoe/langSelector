@@ -1,6 +1,4 @@
 <%@ page import="grails.util.Holders; grails.plugins.GrailsPluginManager" %>
-<g:set var="hasAsset"
-       value="${grailsApplication.mainContext.getBean(GrailsPluginManager.class).hasGrailsPlugin('asset-pipeline') }" />
 <g:set var="displayAsBar" value="${grailsApplication.config.grails.plugin.langSelector.displayAsBar}" />
 <div id="lang_selector" class="lang_selector">
     <g:if test="${displayAsBar}">

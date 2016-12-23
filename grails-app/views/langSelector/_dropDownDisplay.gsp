@@ -1,4 +1,5 @@
-<%@ page import="grails.util.Holders" %>
+<%@ page import="grails.util.Holders; grails.plugins.GrailsPluginManager" %>
+<g:set var="hasAsset" value="${grailsApplication.mainContext.getBean(GrailsPluginManager.class).hasGrailsPlugin('asset-pipeline') }" />
 <div class="dropdown btn-group">
     <g:each in="${locales}" var="locale">
         <g:if test="${locale==selected || locale.language == selected.language}">

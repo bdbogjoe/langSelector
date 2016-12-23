@@ -1,3 +1,5 @@
+<%@ page import="grails.util.Holders; grails.plugins.GrailsPluginManager" %>
+<g:set var="hasAsset" value="${grailsApplication.mainContext.getBean(GrailsPluginManager.class).hasGrailsPlugin('asset-pipeline') }" />
 <g:each in="${locales}" var="locale">
     <a href="${uri + 'lang=' + locale.language}" class="lang_link"
        title="${g.message(code:"com.webbfontaine.grails.plugins.langSelector.locale.${locale.language}", default:locale.getDisplayName(locale))}">
