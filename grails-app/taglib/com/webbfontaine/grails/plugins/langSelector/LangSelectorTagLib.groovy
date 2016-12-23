@@ -35,8 +35,6 @@ class LangSelectorTagLib {
         Locale selected = selectLang(defaultLang)
         url = generateUrl(url)
         List<Locale> locales = getFlags(localeCodesList)
-        println(" locales : "+ locales.toString())
-        println(" selected : "+ selected)
         // distinction selected or default style opacity
         out << render(template: '/langSelector/selector', plugin: 'langSelector', model: [locales: locales, selected: selected, uri: url])
     }
