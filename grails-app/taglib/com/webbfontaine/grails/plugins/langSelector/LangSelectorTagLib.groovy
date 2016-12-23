@@ -1,7 +1,7 @@
 package com.webbfontaine.grails.plugins.langSelector
 
 import grails.util.Holders
-import org.springframework.web.servlet.i18n.SessionLocaleResolver
+import org.springframework.web.servlet.support.RequestContextUtils as RCU
 
 class LangSelectorTagLib {
     static namespace = 'langs'
@@ -26,7 +26,7 @@ class LangSelectorTagLib {
      * @attr url The url will be used instead of the actual one.
      */
     def selector = { attrs ->
-        List<String> localeCodesList = attrs.langs?.toString()?.split(',')?.toList()*.trim()
+        List<String> localeCodesList = attrs.langs
         if (!localeCodesList) {
             throw new Exception("Error getting value of required attribute 'langs'. Accepted value for example is: es,en_US,en")
         }
@@ -41,7 +41,7 @@ class LangSelectorTagLib {
 
     /** Priority: Session Locale resolver (only it supported), `default` attr, system default  */
     Locale selectLang(String defaultLang) {
-        Locale selected = session[SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME] ?: (parseLocale(defaultLang) ?: Locale.getDefault())
+        Locale selected = RCU.getLocale(request) ?: (parseLocale(defaultLang) ?: Locale.getDefault())
         return selected
     }
 
