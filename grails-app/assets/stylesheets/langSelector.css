@@ -3,6 +3,7 @@
 }
 
 .lang_flag {
+    color: #ffffff;
 }
 
 .lang_link {
@@ -15,4 +16,10 @@
 
 .opacity_selected {
     opacity: 1;
+}
+
+.lang_selector .divider-vertical {
+    border-right: 1px solid #ccc;
+    margin-left: 7px;
+    margin-right: 7px;
 }
