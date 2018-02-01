@@ -1,8 +1,10 @@
 package com.webbfontaine.grails.plugins.langSelector
 
 import grails.util.Holders
+import groovy.util.logging.Slf4j
 import org.springframework.web.servlet.support.RequestContextUtils as RCU
 
+@Slf4j
 class LangSelectorTagLib {
     static namespace = 'langs'
     static returnObjectForTags = ['selectLang', 'generateUrl', 'getFlags', 'parseLocale']
@@ -26,7 +28,7 @@ class LangSelectorTagLib {
      * @attr url The url will be used instead of the actual one.
      */
     def selector = { attrs ->
-        List<String> localeCodesList = attrs.langs
+        List<String> localeCodesList = attrs.langs?.toString()?.split(',')?.toList()*.trim()
         if (!localeCodesList) {
             throw new Exception("Error getting value of required attribute 'langs'. Accepted value for example is: es,en_US,en")
         }
