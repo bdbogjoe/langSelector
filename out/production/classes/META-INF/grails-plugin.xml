@@ -1,0 +1,26 @@
+<plugin name='langSelector' version='SNAPSHOT' grailsVersion='3.2.1 &gt; *'>
+  <type>com.webbfontaine.grails.plugins.langselector.LangSelectorGrailsPlugin</type>
+  <authorEmail>maxi.felix@gmail.com</authorEmail>
+  <developers>[[name:Tarik Chrouki, email:tarik.chrouki@webbfontaine.com]]</developers>
+  <author>Maximiliano Felix</author>
+  <documentation>https://github.com/webbfontaine/langSelector/</documentation>
+  <profiles>[web]</profiles>
+  <description>\
+Simple to use tag, lets you change language of your application. It is based in i18n support provided by Grails.
+</description>
+  <title>Language Selector using Grails i18n support.</title>
+  <version />
+  <grailsVersion>3.2.1 &gt; *</grailsVersion>
+  <license>APACHE</license>
+  <pluginExcludes>[grails-app/views/error.gsp]</pluginExcludes>
+  <issueManagement system='GitHub' url='https://github.com/Webbfontaine/langSelector/issues' />
+  <organization name='Webbfontaine' url='http://www.webbfontaine.com/' />
+  <name>lang-selector</name>
+  <scm url='https://github.com/Webbfontaine/langSelector' />
+  <resources>
+    <resource>com.webbfontaine.grails.plugins.langselector.BootStrap</resource>
+    <resource>com.webbfontaine.grails.plugins.langselector.Application</resource>
+    <resource>com.webbfontaine.grails.plugins.langselector.UrlMappings</resource>
+    <resource>com.webbfontaine.grails.plugins.langSelector.LangSelectorTagLib</resource>
+  </resources>
+</plugin>

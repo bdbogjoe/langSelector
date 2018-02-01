@@ -25,8 +25,8 @@ endpoints:
 grails:
     plugin:
         langSelector:
-            displayAsBar: true
-            displayAsLabels: false
+            displayAsBar: false
+            displayAsLabels: true
     mime:
         disable:
             accept:
