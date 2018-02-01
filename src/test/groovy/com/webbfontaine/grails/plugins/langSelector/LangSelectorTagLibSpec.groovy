@@ -1,12 +1,11 @@
 package com.webbfontaine.grails.plugins.langSelector
 
-import grails.test.mixin.TestFor
+import grails.testing.web.taglib.TagLibUnitTest
 import org.springframework.web.servlet.i18n.SessionLocaleResolver
 import spock.lang.Specification
 import spock.lang.Unroll
 
-@TestFor(LangSelectorTagLib)
-class LangSelectorSpecSpec extends Specification {
+class LangSelectorTagLibSpec extends Specification implements TagLibUnitTest<LangSelectorTagLib> {
     static final LOCALE_FROM_RESOLVER = new Locale('xx')
     static final ANY_LOCALE_CODE = 'yy'
     static final LOCALE_FROM_ATTR = new Locale('zz')
@@ -19,7 +18,7 @@ class LangSelectorSpecSpec extends Specification {
         }
         session[SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME] = sessionLocale
         InputStream inputStream = getClass().getResourceAsStream("/selector-${num}.html")
-        String expectHtml = removeWhitespace(inputStream.text)
+        String expectHtml = removeWhitespace(inputStream.getText('UTF-8'))
         String generatedHtml = removeWhitespace(tagLib.selector(langs: langs, default: defaultLang, url: url).toString())
         expect:
         generatedHtml == expectHtml
@@ -60,8 +59,6 @@ class LangSelectorSpecSpec extends Specification {
         where:
         sessionLocale        | defaultLocale             | locale
         LOCALE_FROM_RESOLVER | ANY_LOCALE_CODE           | LOCALE_FROM_RESOLVER
-        null                 | LOCALE_FROM_ATTR.language | LOCALE_FROM_ATTR
-        null                 | null                      | Locale.default
     }
 
     @Unroll

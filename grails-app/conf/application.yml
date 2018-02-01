@@ -23,6 +23,10 @@ endpoints:
 
 ---
 grails:
+    plugin:
+        langSelector:
+            displayAsBar: true
+            displayAsLabels: false
     mime:
         disable:
             accept:
